@@ -104,6 +104,8 @@
 UselessClass useless(11, true, "fhgwgads");
 
  void setup() {
+  Serial.begin(9600);
+  delay(2000);
   
   useless.Method1();
   delay(1000);

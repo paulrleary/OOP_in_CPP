@@ -97,6 +97,7 @@ class Sweeper
       {
         lastUpdate = millis();
         pos += updateIncrement;
+
         servo.write(pos);
 
         if (printFlag) //print servo position, if print is True
@@ -124,6 +125,7 @@ Sweeper sweeper1(9, 10, 1, 0); //Instantiates an instance of Sweeper class, crea
 void setup()
 {
   Serial.begin(9600);
+  delay(1000);
 }
 
 void loop()
