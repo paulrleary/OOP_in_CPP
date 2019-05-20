@@ -28,6 +28,8 @@
 #include "Flasher.h"
 #include "Sweeper.h"
 #include "Nocturnal.h"
+#include "Spinner.h"
+#include "PartyMusic.h"
 
 Flasher led1(24, 250, 750, 0); 
 Flasher led2(25, 330, 400, 0);
@@ -35,9 +37,13 @@ Flasher led3(26, 150, 200, 0);
 Flasher led4(27, 200, 100, 0);
 Flasher led5(28, 200, 300, 0);
 
-Sweeper sweeper1(9, 8, 1, 0); 
+Sweeper sweeper1(9, 10, 1, 0); 
 
 Nocturnal party_tonight(A9, 500);
+
+Spinner spinner(6, 1);
+
+PartyMusic dj(3, 200);
 
 
 void setup()
@@ -48,6 +54,8 @@ void setup()
 void loop()
 {
   if (party_tonight.IsDark()) {
+    dj.Update();
+    
     led1.Update();
     led2.Update();
     led3.Update();
@@ -55,6 +63,8 @@ void loop()
     led5.Update();
 
     sweeper1.Update();
+
+    spinner.Update();
   }
 
 }
